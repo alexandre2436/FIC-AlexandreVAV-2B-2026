@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,9 @@
 </head>
 
 <body>
+
+    <div class="particulas"></div>
+
     <header>
         <h1>Dev <span>Saber</span></h1>
         <nav>
@@ -17,7 +19,7 @@
                 <li><a href="#home">home</a></li>
                 <li><a href="#sobre">sobre</a></li>
                 <li><a href="#projetos">projetos</a></li>
-                <li><a href="#contato">contato</a></li>
+                <li><a href="#contatos">contato</a></li>
             </ul>
         </nav>
     </header>
@@ -28,11 +30,11 @@
             <p>sou um estudante de informatica com desenvolmimento nessa área, e desenvolvendo soluções digitais triviais</p>
             <a href="#">Dowload CV</a>
         </div>
-        <img src="imagens/WhatsApp Image 2026-04-13 at 19.51.46.jpeg">
+        <img src="WhatsApp Image 2026-04-13 at 19.51.47.jpeg">
     </section>
 
     <section id="sobre" class="sobre">
-        <h2 class="sobre-titlo">Sobre Mim</h2>
+        <h2 class="sobre-titulo">Sobre Mim</h2>
         <div class="sobre-caixa">
             <p class="sobre-paragráfo">
             Olá, sou um técnico de infórmatica da escola FIC, e pretendo fazer grandes coisas nessa área. 
@@ -44,9 +46,45 @@
          <h2 class="projetos-titulo">projetos</h2>
          <div class="projetos-caixa">
              <div class="projetos-card">
-                <img src=""
+                <a href="projetos.html"> <img class="calculadora" src="WhatsApp Image 2026-04-16 at 17.56.23.jpeg"></a>
+                <div class="caixa-textos-projetos"></div>
+                <h3 class="info-projetos">Calculadora</h3>
+                <p class="paragrafo-projetos">Projeto de calculadora virtual feita com programação e para usos matemáticos fundamentais</p>
              </div>
+
          </div>
     </section>
+
+<section id="contatos" class="contatos">
+    <h2 class="contatos-titulo">contatos</h2>
+    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+        <div class="grupo-form">
+           <input type="text" placeholder="None" class="campo-form" id="nome">
+        </div>
+        <div class="grupo-form">
+        <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
+    </div>
+
+      <button type="submit" class="botao-form">Enviar WhatsApp</button>
+    </form>
+</section>
+
+<script>
+    function enviarWhats(event) {
+        event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const mensagem = document.getElementById('mensagem').value;
+    const telefone = '558494045286'
+
+    const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+    const msgFormatado = encodeURIComponent(texto);
+
+    const url = `https://wa.me/${telefone}/?text=${msgFormatado}`;
+
+    window.open(url, '_blank');
+ }
+</script>
+
 </body>
 </html>
